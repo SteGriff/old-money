@@ -2,7 +2,8 @@
   "name": "old-money",
   "version": "1.0.0",
   "description": "Pounds, shillings, and pence",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "type": "module",
   "scripts": {
     "test": "ava",
     "build": "esbuild src/index.ts --bundle --outfile=dist/index.js",
