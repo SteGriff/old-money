@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "ava",
-    "build": "esbuild src/index.ts --bundle --outfile=dist/index.js",
-    "watch": "esbuild src/index.ts --bundle --outfile=dist/index.js --watch"
+    "build": "esbuild src/index.ts --format=esm --bundle --outfile=dist/index.js",
+    "watch": "esbuild src/index.ts --format=esm --bundle --outfile=dist/index.js --watch"
   },
   "repository": {
     "type": "git",
