@@ -13,15 +13,20 @@ class lsd {
 	get totalPence() { return this._pence; }
 	get totalShillings() { return parseInt(this._pence / this.PENCE_PER_SHILLING); }
 	
-	constructor(pence : number = 0) {
-		this._pence = pence;
+	constructor(pence: number);
+	constructor(pounds: number, shillings: number, pence: number);
+	constructor(p: number = 0, shillings: number, pence: number) {
+		// If p is the only argument, treat it as pence
+		// Otherwise, treat it as pounds. This presents as two constructor overloads in the docs.
+		if (!shillings && !pence)
+		{
+			this._pence = parseInt(p);
+			return;
+		}
+		this._pence = parseInt(pence);
+		this.addShillings(shillings);
+		this.addPounds(p);
 	}
-	
-	// constructor(pounds: number = 0, shillings: number = 0, pence: number = 0) {
-		// this._pence = pence;
-		// this.addShillings(shillings);
-		// this.addPounds(pounds);
-	// }
 	
 	addPence(pence: number) : void {
 		this._pence += pence;

@@ -37,3 +37,25 @@ test('addPounds £1+£1 = £2', t => {
 	t.is(m.shillings, 0);
 	t.is(m.pence, 0);
 });
+
+test('add(lsd) £1/2/6 + 2/6 = £1/5/0', t => {
+	let m = new lsd(1,2,6);
+	let n = new lsd(0,2,6);
+	m.add(n);
+	t.is(m.pounds, 1);
+	t.is(m.shillings, 5);
+	t.is(m.pence, 0);
+	
+	// n is unchanged
+	t.is(n.pounds, 0);
+	t.is(n.shillings, 2);
+	t.is(n.pence, 6);
+});
+
+test('add(lsd) 0 + 0 = 0', t => {
+	let m = new lsd();
+	let n = new lsd();
+	m.add(n);
+	t.is(m.totalPence, 0);
+	t.is(n.totalPence, 0);
+});
