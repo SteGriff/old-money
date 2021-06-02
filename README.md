@@ -45,7 +45,17 @@ Create a new lsd money object with a total number of pence:
 let m = new lsd(6);
 ```
 
+### new lsd(pounds, shillings, pence)
 
+Create a new lsd money object using three "stacks" of coin types. These will be converted into a total number of pence and rationalised: 
+
+```
+let m = new lsd(1, 41, 25);
+console.log(m.totalPence);
+// 757
+console.log(m.pounds, m.shillings, m.pence);
+// 3, 3, 1	
+```
 
 ### lsd.pounds, lsd.shillings, and lsd.pence
 
@@ -69,7 +79,7 @@ console.log(m.totalPence);
 
 ### lsd.totalShillings
 
-Get the whole amount as a total number of shillings, as some shops used to do:
+Get the whole amount as a total whole number of shillings, as some shops did:
 
 ```
 let m = new lsd(1176);
