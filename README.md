@@ -57,9 +57,31 @@ console.log(m.pounds, m.shillings, m.pence);
 // 3, 3, 1	
 ```
 
+### lsd.toString()
+
+Get the money amount as a string in the default format like "£3/19/11"
+
+```
+let m = new lsd(959);
+console.log(m.toString());
+// "£3/19/11"
+```
+
+### lsd.toString(format)
+
+Format your own string using `$l`, `$s`, and `$d` for pounds, shillings, and pence respectively. 
+
+```
+let m = new lsd(522);
+console.log(m.toString("£$l. $ss. $dd."));
+// "£2. 3s. 6d."
+console.log(m.toString("$l pounds, $s and $d"));
+// "2 pounds, 3 and 6"
+```
+
 ### lsd.pounds, lsd.shillings, and lsd.pence
 
-Get the representation of money in pounds, shillings, and pence, with an upper bound on shillings and pence:
+Get the individual, bounded number of pounds, shillings, and pence, with an upper bound on shillings (20) and pence (12):
 
 ```
 let m = new lsd(959);
@@ -87,24 +109,28 @@ console.log(m.totalShillings);
 // 98
 ```
 
-### lsd.toString()
+### lsd.addPounds(pounds), lsd.addShillings(shillings), and lsd.addPence(pence)
 
-Get the money amount as a string in the default format like "£3/19/11"
+Add the specified number of pounds, shillings, or pence. Pence can be greater than 12 and shillings greater than 20 because the amount will be rationalised into a whole number of pence:
 
 ```
-let m = new lsd(959);
+let m = new lsd(12); //12d (one shilling)
+m.addShillings(19); // Adds up to 20s, that is, £1
+
 console.log(m.toString());
-// "£3/19/11"
+// "£1/0/0"
 ```
 
-### lsd.toString(format)
+### lsd.add(lsd)
 
-Format your own string using `$l`, `$s`, and `$d` for pounds, shillings, and pence respectively. 
+Add together two `lsd` objects:
 
 ```
-let m = new lsd(522);
-console.log(m.toString("£$l. $ss. $dd."));
-// "£2. 3s. 6d."
-console.log(m.toString("$l pounds, $s and $d"));
-// "2 pounds, 3 and 6"
+let m = new lsd(1,2,6);
+let n = new lsd(0,2,6);
+m.add(n);
+
+console.log(m.toString());
+// "£1/5/0"
+// n is unchanged
 ```
