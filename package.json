@@ -15,7 +15,10 @@
   },
   "keywords": [
     "money",
+	"pre-decimal",
+	"pence",
     "shillings",
+	"pounds",
     "currency",
     "lsd",
     "£sd"
