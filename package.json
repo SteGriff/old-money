@@ -1,6 +1,6 @@
 {
   "name": "old-money",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Pounds, shillings, and pence",
   "main": "dist/index.js",
   "type": "module",
@@ -29,10 +29,8 @@
     "url": "https://github.com/stegriff/old-money/issues"
   },
   "homepage": "https://github.com/stegriff/old-money#readme",
-  "dependencies": {
-    "esbuild": "^0.12.2"
-  },
   "devDependencies": {
+    "esbuild": "^0.12.2",
     "ava": "^3.15.0"
   }
 }

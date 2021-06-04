@@ -30,6 +30,14 @@ test('addShillings 1s+19s = £1/0/0', t => {
 	t.is(m.pence, 0);
 });
 
+test('addShillings 20s-1s = 19s', t => {
+	let m = new lsd(240);
+	m.addShillings(-1);
+	t.is(m.pounds, 0);
+	t.is(m.shillings, 19);
+	t.is(m.pence, 0);
+});
+
 test('addPounds £1+£1 = £2', t => {
 	let m = new lsd(240);
 	m.addPounds(1);
@@ -58,4 +66,12 @@ test('add(lsd) 0 + 0 = 0', t => {
 	m.add(n);
 	t.is(m.totalPence, 0);
 	t.is(n.totalPence, 0);
+});
+
+test('add(lsd) -1000 + 1000 = 0', t => {
+	let m = new lsd(-1000);
+	let n = new lsd(1000);
+	m.add(n);
+	t.is(m.totalPence, 0);
+	t.is(n.totalPence, 1000);
 });

@@ -1,10 +1,10 @@
 # old-money
 
-💷 TS module for Pounds, Shillings, and Pence (lsd/£sd)
+💷 JS/TS module for Pounds, Shillings, and Pence (lsd/£sd)
 
-Uses ECMAScript Modules so you'll need Node 14+
+`old-money` [uses ECMAScript Modules][esm] so you'll need Node 14+
 
-**WIP** - not finished, not on npm yet
+[esm]: https://blog.sindresorhus.com/hello-modules-d1010b4e777b
 
 ## Install + Build
 

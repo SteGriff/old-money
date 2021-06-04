@@ -6,6 +6,17 @@ test('class is available', t => {
 	t.truthy(m);
 });
 
+test('instantiating on null -> 0d', t => {
+	let m = new lsd();
+	t.is(m.totalPence, 0);
+});
+
+test('instantiating on -1000 -> no crash', t => {
+	let m = new lsd(-1000);
+	t.is(m.totalPence, -1000);
+});
+
+
 /* Pence Constructor */
 
 test('instantiates with a pence amount', t => {
